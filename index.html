@@ -13,10 +13,12 @@
     <div class="nav-inner">
       <span class="nav-logo">🤖 Bot Bot Bot Sahur</span>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
+        <li><a href="#about">Build</a></li>
         <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#video">Demo</a></li>
-        <li><a href="#log">Build Log</a></li>
+        <li><a href="#pid">PID</a></li>
+        <li><a href="#video">Videos</a></li>
+        <li><a href="#competition">Results</a></li>
+        <li><a href="#poster">Poster</a></li>
         <li><a href="#team">Team</a></li>
       </ul>
     </div>
@@ -25,13 +27,14 @@
   <!-- HERO -->
   <header class="hero">
     <div class="hero-content">
-      <p class="hero-eyebrow">UC San Diego · ECE 5 · Spring 2026</p>
+      <p class="hero-eyebrow"> UC San Diego · ECE 5 · Spring 2026</p>
       <h1 class="hero-title">Bot Bot Bot<br><span>Sahur</span></h1>
       <p class="hero-sub">
         We built a line-following robot from scratch — soldering, 3D printing, and a PID control loop tuned by hand. Here's what we made:
+      </p>
       <div class="hero-actions">
         <a href="#gallery" class="btn">See the Build</a>
-        <a href="#video" class="btn btn--outline">Watch Demo</a>
+        <a href="#video" class="btn btn--outline">Watch Videos</a>
       </div>
     </div>
     <div class="hero-visual">
@@ -60,11 +63,11 @@
     </div>
   </header>
 
-  <!-- ABOUT -->
+  <!-- ABOUT / ROBOT BUILDING (Ch. 1–2) -->
   <section class="section" id="about">
     <div class="container">
       <h2 class="section-title">What We Built</h2>
-      <p class="section-sub">An autonomous line-following car built from scratch — breadboards, solder joints, 3D-printed parts, and a PID controller we tuned by hand. No promises on the first 15 tries.</p>
+      <p class="section-sub">From Chapter 1–2 submissions: an autonomous line-following car built from scratch — breadboards, solder joints, 3D-printed parts, and a PID controller we tuned by hand. No promises on the first 15 tries.</p>
       <div class="about-grid">
         <div class="about-card">
           <div class="about-icon">🧠</div>
@@ -139,11 +142,11 @@
     </div>
   </section>
 
-  <!-- GALLERY -->
+  <!-- GALLERY — Prototyping & Assembly -->
   <section class="section section--dark" id="gallery">
     <div class="container">
-      <h2 class="section-title">Build Gallery</h2>
-      <p class="section-sub">Step by step assembly of the finished robot: </p>
+      <h2 class="section-title">Prototyping &amp; Assembly</h2>
+      <p class="section-sub">Step by step assembly of the finished robot:</p>
 
       <div class="gallery-grid" id="galleryGrid">
         <!--
@@ -192,25 +195,312 @@
     </div>
   </section>
 
-  <!-- VIDEO -->
+  <!-- FINAL ROBOT — Annotated Photo -->
+  <section class="section" id="final-robot">
+    <div class="container">
+      <h2 class="section-title">Final Competition Robot</h2>
+      <p class="section-sub">Our completed robot annotated with key features.</p>
+
+      <div class="annotated-photo-wrapper">
+        <!--
+          Replace this placeholder with your annotated robot photo:
+
+          <img src="assets/images/final-robot-annotated.jpg"
+               alt="Final competition robot with annotations"
+               class="annotated-photo" />
+
+          Add arrows/labels in an image editor (Canva, PowerPoint, etc.) before exporting.
+        -->
+        <div class="annotated-placeholder">
+          <div class="annotated-placeholder-icon">📷</div>
+          <p class="annotated-placeholder-title">Final Robot Photo — Add Here</p>
+          <p class="annotated-placeholder-hint">Annotated image of the finished robot (arrows pointing to key features) here</p>
+        </div>
+
+        <!-- Example annotation badges — position these over the real photo using CSS -->
+        <div class="annotation-list">
+          <div class="annotation-item">
+            <span class="annotation-arrow">→</span>
+            <span class="annotation-label">ESP32 Dev Board</span>
+          </div>
+          <div class="annotation-item">
+            <span class="annotation-arrow">→</span>
+            <span class="annotation-label">7× Photoresistor Array</span>
+          </div>
+          <div class="annotation-item">
+            <span class="annotation-arrow">→</span>
+            <span class="annotation-label">L298N Motor Driver</span>
+          </div>
+          <div class="annotation-item">
+            <span class="annotation-arrow">→</span>
+            <span class="annotation-label">4× Tuning Potentiometers</span>
+          </div>
+          <div class="annotation-item">
+            <span class="annotation-arrow">→</span>
+            <span class="annotation-label">DC Motors &amp; Wheels</span>
+          </div>
+          <div class="annotation-item">
+            <span class="annotation-arrow">→</span>
+            <span class="annotation-label">3D-Printed Chassis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PID CONTROL -->
+  <section class="section section--dark" id="pid">
+    <div class="container">
+      <h2 class="section-title">PID Control</h2>
+      <p class="section-sub">How we made the robot follow a line and how we tuned it.</p>
+
+      <!-- Explanation -->
+      <div class="pid-explainer">
+        <h3 class="pid-explainer-title">What is PID?</h3>
+        <p>
+          PID (Proportional–Integral–Derivative) is a closed-loop feedback control algorithm. Our robot continuously reads the 7-sensor array to calculate how far off-center the line is (the <strong>error</strong>). The PID controller then adjusts the left and right motor speeds to correct for that error in three ways:
+        </p>
+        <div class="pid-terms">
+          <div class="pid-term">
+            <span class="pid-letter">P</span>
+            <div>
+              <strong>Proportional</strong>
+              <p>Correction proportional to the current error. Large error → large correction. Too high and the robot oscillates; too low and it's sluggish.</p>
+            </div>
+          </div>
+          <div class="pid-term">
+            <span class="pid-letter">I</span>
+            <div>
+              <strong>Integral</strong>
+              <p>Accumulates past errors over time. Corrects for persistent bias (e.g., one motor faster than the other). Can cause wind-up if set too high.</p>
+            </div>
+          </div>
+          <div class="pid-term">
+            <span class="pid-letter">D</span>
+            <div>
+              <strong>Derivative</strong>
+              <p>Reacts to the rate of change of the error. Dampens oscillation and smooths out sharp turns. Acts as a brake before overcorrection.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PID Values -->
+      <div class="pid-values-section">
+        <h3 class="pid-sub-title">Our PID Values &amp; Why</h3>
+        <div class="pid-values-grid">
+          <div class="pid-value-card">
+            <div class="pid-value-label">Speed</div>
+            <div class="pid-value-num">[VALUE]</div>
+            <p>[Explain why we chose this base speed — e.g., fast enough to complete tracks in time but slow enough for the PID to respond accurately.]</p>
+          </div>
+          <div class="pid-value-card">
+            <div class="pid-value-label">P (Proportional)</div>
+            <div class="pid-value-num">[VALUE]</div>
+            <p>[Explain — e.g., we started at X and increased until the robot corrected sharply without oscillating.]</p>
+          </div>
+          <div class="pid-value-card">
+            <div class="pid-value-label">I (Integral)</div>
+            <div class="pid-value-num">[VALUE]</div>
+            <p>[Explain — e.g., kept very low / near zero because straight sections were short and wind-up was a bigger risk than bias.]</p>
+          </div>
+          <div class="pid-value-card">
+            <div class="pid-value-label">D (Derivative)</div>
+            <div class="pid-value-num">[VALUE]</div>
+            <p>[Explain — e.g., increased D to smooth sharp turn entry; too high caused jitter on straight sections.]</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Track Adjustments -->
+      <div class="pid-tracks-section">
+        <h3 class="pid-sub-title">Speed &amp; PID Adjustments Per Track</h3>
+        <div class="track-cards">
+          <div class="track-card">
+            <div class="track-icon">🏁</div>
+            <h4>Drag Race</h4>
+            <div class="track-values">
+              <span>Speed: <strong>[VALUE]</strong></span>
+              <span>P: <strong>[VALUE]</strong></span>
+              <span>I: <strong>[VALUE]</strong></span>
+              <span>D: <strong>[VALUE]</strong></span>
+            </div>
+            <p>[Explain adjustments — e.g., maximized speed since the track is a straight line; reduced D to avoid overcorrecting on minor deviations.]</p>
+          </div>
+          <div class="track-card">
+            <div class="track-icon">〰️</div>
+            <h4>Frequency Sweep</h4>
+            <div class="track-values">
+              <span>Speed: <strong>[VALUE]</strong></span>
+              <span>P: <strong>[VALUE]</strong></span>
+              <span>I: <strong>[VALUE]</strong></span>
+              <span>D: <strong>[VALUE]</strong></span>
+            </div>
+            <p>[Explain — e.g., reduced speed to handle tighter curves; increased P and D to respond to rapidly changing line position.]</p>
+          </div>
+          <div class="track-card">
+            <div class="track-icon">🔁</div>
+            <h4>Loop</h4>
+            <div class="track-values">
+              <span>Speed: <strong>[VALUE]</strong></span>
+              <span>P: <strong>[VALUE]</strong></span>
+              <span>I: <strong>[VALUE]</strong></span>
+              <span>D: <strong>[VALUE]</strong></span>
+            </div>
+            <p>[Explain — e.g., balanced speed to sustain multiple laps; tuned I slightly higher to handle continuous circular drift.]</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Optional Code Modifications -->
+      <div class="pid-code-section">
+        <h3 class="pid-sub-title">Code Modifications <span class="optional-badge">Optional</span></h3>
+        <p class="pid-code-hint">[Any notable changes made to the starter code.]</p>
+        <!--
+          Uncomment and fill in a code snippet if sharing modifications:
+
+          <pre class="code-block"><code>// Example: weighted sensor error calculation
+float error = (s0*-3 + s1*-2 + s2*-1 + s3*0 + s4*1 + s5*2 + s6*3) / activeSensors;
+float correction = Kp*error + Ki*integral + Kd*(error - prevError);
+leftSpeed  = constrain(baseSpeed + correction, 0, 255);
+rightSpeed = constrain(baseSpeed - correction, 0, 255);</code></pre>
+        -->
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETITION VIDEOS -->
   <section class="section" id="video">
     <div class="container">
-      <h2 class="section-title">Demo Video</h2>
-      <p class="section-sub">Watch the robot do its thing.</p>
+      <h2 class="section-title">Competition Videos</h2>
+      <p class="section-sub">Watch our robot compete on each track during competition day!</p>
 
-      <div class="video-wrapper">
+      <div class="videos-grid">
+        <!-- Drag Race Video -->
+        <div class="video-block">
+          <h3 class="video-block-title">Drag Race</h3>
+          <div class="video-wrapper">
+            <!--
+              Replace placeholder with embed or local file:
+              <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen title="Drag Race"></iframe>
+              or
+              <video controls><source src="assets/videos/drag-race.mp4" type="video/mp4" /></video>
+            -->
+            <div class="video-placeholder">
+              <div class="play-icon">▶</div>
+              <p>Drag Race video — add here</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frequency Sweep Video -->
+        <div class="video-block">
+          <h3 class="video-block-title">Frequency Sweep</h3>
+          <div class="video-wrapper">
+            <div class="video-placeholder">
+              <div class="play-icon">▶</div>
+              <p>Frequency Sweep video — add here</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Loop Video -->
+        <div class="video-block">
+          <h3 class="video-block-title">Loop</h3>
+          <div class="video-wrapper">
+            <div class="video-placeholder">
+              <div class="play-icon">▶</div>
+              <p>Loop video — add here</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POSTER -->
+  <section class="section section--dark" id="poster">
+    <div class="container">
+      <h2 class="section-title">Project Poster</h2>
+      <p class="section-sub">Submitted during Week 10 — summarizing our design, build, and results.</p>
+
+      <div class="poster-wrapper">
         <!--
-          YouTube embed — replace VIDEO_ID:
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen title="Robot demo"></iframe>
+          Replace placeholder with your poster image:
+          <img src="assets/images/poster.jpg" alt="Bot Bot Bot Sahur ECE 5 Project Poster" class="poster-img" />
 
-          Local video file:
-            <video controls>
-              <source src="assets/videos/demo.mp4" type="video/mp4" />
-            </video>
+          Or embed a PDF:
+          <iframe src="assets/poster.pdf" class="poster-iframe" title="Project Poster"></iframe>
         -->
-        <div class="video-placeholder">
-          <div class="play-icon">▶</div>
-          <p>Demo video coming soon</p>
+        <div class="poster-placeholder">
+          <div class="poster-placeholder-icon">📄</div>
+          <p class="poster-placeholder-title">Project Poster — Add Here</p>
+          <p class="poster-placeholder-hint">Poster image (JPG/PNG) or PDF embed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETITION RESULTS -->
+  <section class="section" id="competition">
+    <div class="container">
+      <h2 class="section-title">Competition Results</h2>
+      <p class="section-sub">Our scores and rankings across all three competition tracks.</p>
+
+      <div class="results-grid">
+        <!-- Drag Race -->
+        <div class="result-card">
+          <div class="result-icon">🏁</div>
+          <h3>Drag Race</h3>
+          <div class="result-stats">
+            <div class="result-stat">
+              <span class="result-stat-label">Time</span>
+              <span class="result-stat-value">[X.XX s]</span>
+            </div>
+            <div class="result-stat">
+              <span class="result-stat-label">Rank</span>
+              <span class="result-stat-value">[#X / XX]</span>
+            </div>
+          </div>
+          <p class="result-note">[Notes about the run — e.g., clean run, no line loss, second attempt used.]</p>
+        </div>
+
+        <!-- Frequency Sweep -->
+        <div class="result-card">
+          <div class="result-icon">〰️</div>
+          <h3>Frequency Sweep</h3>
+          <div class="result-stats">
+            <div class="result-stat">
+              <span class="result-stat-label">Distance</span>
+              <span class="result-stat-value">[X.X m]</span>
+            </div>
+            <div class="result-stat">
+              <span class="result-stat-label">Time</span>
+              <span class="result-stat-value">[X.XX s]</span>
+            </div>
+            <div class="result-stat">
+              <span class="result-stat-label">Rank</span>
+              <span class="result-stat-value">[#X / XX]</span>
+            </div>
+          </div>
+          <p class="result-note">[Notes — e.g., lost the line at the 3rd curve, recovered and continued.]</p>
+        </div>
+
+        <!-- Loop -->
+        <div class="result-card">
+          <div class="result-icon">🔁</div>
+          <h3>Loop</h3>
+          <div class="result-stats">
+            <div class="result-stat">
+              <span class="result-stat-label"># Loops</span>
+              <span class="result-stat-value">[X loops]</span>
+            </div>
+            <div class="result-stat">
+              <span class="result-stat-label">Rank</span>
+              <span class="result-stat-value">[#X / XX]</span>
+            </div>
+          </div>
+          <p class="result-note">[Notes — e.g., completed X full laps before the battery voltage dropped.]</p>
         </div>
       </div>
     </div>
@@ -220,7 +510,7 @@
   <section class="section section--dark" id="log">
     <div class="container">
       <h2 class="section-title">Build Log</h2>
-      <p class="section-sub">Every challenge, in order. </p>
+      <p class="section-sub">Every challenge built in order.</p>
       <div class="log-timeline">
 
         <div class="log-entry">
@@ -288,10 +578,10 @@
           <div class="log-body">
             <div class="log-meta">
               <span class="log-date">Lab 3</span>
-              <span class="log-status status--progress">In Progress</span>
+              <span class="log-status status--done">Done</span>
             </div>
             <h3>Line Following — PID Tuning</h3>
-            <p>Wrote the PID control loop using the photoresistor array for error calculation. Using the 4 potentiometers to tune P, I, D, and Speed live on the track. Goal: smooth line following without oscillation or overshooting turns.</p>
+            <p>Wrote the PID control loop using the photoresistor array for error calculation. Used the 4 potentiometers to tune P, I, D, and Speed live on the track. Final values: P=[VALUE], I=[VALUE], D=[VALUE], Speed=[VALUE]. Achieved smooth line following on the straight and handled curves at competition speed.</p>
           </div>
         </div>
 
@@ -299,11 +589,11 @@
           <div class="log-dot"></div>
           <div class="log-body">
             <div class="log-meta">
-              <span class="log-date">Lab 4</span>
-              <span class="log-status status--planned">Planned</span>
+              <span class="log-date">Lab 4 / Competition</span>
+              <span class="log-status status--done">Done</span>
             </div>
             <h3>Competition Day</h3>
-            <p>Race against other teams' robots on the official track. Fastest clean run wins. Fingers crossed — everything works perfectly in our heads.</p>
+            <p>Competed across three tracks: Drag Race, Frequency Sweep, and Loop.</p>
           </div>
         </div>
 
@@ -311,8 +601,27 @@
     </div>
   </section>
 
+  <!-- IMPROVEMENTS -->
+  <section class="section" id="improvements">
+    <div class="container">
+      <h2 class="section-title">Improvements &amp; Reflections</h2>
+      <p class="section-sub">What changed in the final week and what we'd do differently with more time.</p>
+
+      <div class="improvements-block">
+        <!--
+          Write 4–6 sentences covering:
+          - What improvements were made during the last week
+          - What improvements you wish you had made (or would make given more time)
+        -->
+        <p class="improvements-text">
+          [Replace this paragraph with 4–6 sentences.]
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- TEAM -->
-  <section class="section" id="team">
+  <section class="section section--dark" id="team">
     <div class="container">
       <h2 class="section-title">The Team</h2>
       <p class="section-sub">The humans responsible for this machine.</p>
@@ -340,7 +649,25 @@
         <div class="team-card">
           <div class="team-avatar">👤</div>
           <h3>Anthony Z.</h3>
-          <p>ECE · UCSD</p>
+          <p>Physics · UCSD</p>
+        </div>
+      </div>
+
+      <!-- Competition Day Team Photo -->
+      <div class="team-photo-section">
+        <h3 class="team-photo-title">Competition Day</h3>
+        <div class="team-photo-wrapper">
+          <!--
+            Replace this placeholder with your competition day team photo:
+            <img src="assets/images/team-competition.jpg"
+                 alt="Bot Bot Bot Sahur team at ECE 5 competition day"
+                 class="team-photo" />
+          -->
+          <div class="team-photo-placeholder">
+            <div class="team-photo-icon">📸</div>
+            <p class="team-photo-title-inner">Team Photo — Competition Day</p>
+            <p class="team-photo-hint">Group photo of all team members from competition day.</p>
+          </div>
         </div>
       </div>
     </div>
