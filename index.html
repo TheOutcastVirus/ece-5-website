@@ -148,42 +148,64 @@
       <h2 class="section-title">Prototyping &amp; Assembly</h2>
       <p class="section-sub">Step by step assembly of the finished robot:</p>
 
-      <div class="gallery-grid" id="galleryGrid">
-        <!--
-          To add a real photo, replace a placeholder block with:
-
+      <div id="galleryGrid">
+        <div class="gallery-grid">
           <div class="gallery-item">
-            <img src="assets/images/your-photo.jpg" alt="Brief description" />
-            <span class="caption-overlay">Caption text here</span>
+            <img src="assets/images/IMG_1066.png" alt="Bot Bot Bot Sahur build photo 1" />
+            <span class="caption-overlay">Build photo</span>
           </div>
+          <div class="gallery-item">
+            <img src="assets/images/IMG_1067.png" alt="Bot Bot Bot Sahur build photo 2" />
+            <span class="caption-overlay">Build photo</span>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/images/IMG_1068.png" alt="Bot Bot Bot Sahur build photo 3" />
+            <span class="caption-overlay">Build photo</span>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/images/IMG_1069.png" alt="Bot Bot Bot Sahur build photo 4" />
+            <span class="caption-overlay">Build photo</span>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/images/IMG_1070.png" alt="Bot Bot Bot Sahur build photo 5" />
+            <span class="caption-overlay">Build photo</span>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/images/IMG_1071.png" alt="Bot Bot Bot Sahur build photo 6" />
+            <span class="caption-overlay">Build photo</span>
+          </div>
+        </div>
 
-          Photos will be clickable and open in a lightbox automatically.
-        -->
-        <div class="gallery-item">
-          <img src="assets/images/IMG_1066.png" alt="Bot Bot Bot Sahur build photo 1" />
-          <span class="caption-overlay">Build photo</span>
+        <h3 class="gallery-subsection-title">2nd Iteration</h3>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="assets/images/IMG_1213.png" alt="Bot Bot Bot Sahur build photo 7" />
+            <span class="caption-overlay">Build photo</span>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/images/IMG_1214.png" alt="Bot Bot Bot Sahur build photo 8" />
+            <span class="caption-overlay">Build photo</span>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/images/IMG_1215.png" alt="Bot Bot Bot Sahur build photo 9" />
+            <span class="caption-overlay">Build photo</span>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/images/IMG_1238.png" alt="Bot Bot Bot Sahur build photo 10" />
+            <span class="caption-overlay">Build photo</span>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/images/IMG_1228 (1).JPG" alt="Bot Bot Bot Sahur team photo" />
+            <span class="caption-overlay">Team photo</span>
+          </div>
+          <div class="gallery-item gallery-item--video">
+            <video controls>
+              <source src="assets/images/IMG_1246.mov" type="video/quicktime" />
+              <source src="assets/images/IMG_1246.mov" type="video/mp4" />
+            </video>
+            <span class="caption-overlay">Line following demo</span>
+          </div>
         </div>
-        <div class="gallery-item">
-          <img src="assets/images/IMG_1067.png" alt="Bot Bot Bot Sahur build photo 2" />
-          <span class="caption-overlay">Build photo</span>
-        </div>
-        <div class="gallery-item">
-          <img src="assets/images/IMG_1068.png" alt="Bot Bot Bot Sahur build photo 3" />
-          <span class="caption-overlay">Build photo</span>
-        </div>
-        <div class="gallery-item">
-          <img src="assets/images/IMG_1069.png" alt="Bot Bot Bot Sahur build photo 4" />
-          <span class="caption-overlay">Build photo</span>
-        </div>
-        <div class="gallery-item">
-          <img src="assets/images/IMG_1070.png" alt="Bot Bot Bot Sahur build photo 5" />
-          <span class="caption-overlay">Build photo</span>
-        </div>
-        <div class="gallery-item">
-          <img src="assets/images/IMG_1071.png" alt="Bot Bot Bot Sahur build photo 6" />
-          <span class="caption-overlay">Build photo</span>
-        </div>
-        <div class="gallery-item placeholder"><span>📸 More Coming Soon</span></div>
       </div>
 
       <!-- Lightbox -->
@@ -211,11 +233,9 @@
 
           Add arrows/labels in an image editor (Canva, PowerPoint, etc.) before exporting.
         -->
-        <div class="annotated-placeholder">
-          <div class="annotated-placeholder-icon">📷</div>
-          <p class="annotated-placeholder-title">Final Robot Photo — Add Here</p>
-          <p class="annotated-placeholder-hint">Annotated image of the finished robot (arrows pointing to key features) here</p>
-        </div>
+        <img src="assets/images/labeled_robot.png"
+             alt="Final competition robot with labeled components"
+             class="annotated-photo" />
 
         <!-- Example annotation badges — position these over the real photo using CSS -->
         <div class="annotation-list">
@@ -291,23 +311,23 @@
         <div class="pid-values-grid">
           <div class="pid-value-card">
             <div class="pid-value-label">Speed</div>
-            <div class="pid-value-num">[VALUE]</div>
-            <p>[Explain why we chose this base speed — e.g., fast enough to complete tracks in time but slow enough for the PID to respond accurately.]</p>
+            <div class="pid-value-num">30–80</div>
+            <p>Set higher for smoother tracks (1 and 3) and lower for trickier turns in Track 2, balancing completion time against the PID's ability to respond accurately.</p>
           </div>
           <div class="pid-value-card">
             <div class="pid-value-label">P (Proportional)</div>
-            <div class="pid-value-num">[VALUE]</div>
-            <p>[Explain — e.g., we started at X and increased until the robot corrected sharply without oscillating.]</p>
+            <div class="pid-value-num">25–40</div>
+            <p>Controls reaction intensity — how sharply the robot turns in response to error. Set higher for tracks with trickier turns (Track 2) to correct quickly.</p>
           </div>
           <div class="pid-value-card">
             <div class="pid-value-label">I (Integral)</div>
-            <div class="pid-value-num">[VALUE]</div>
-            <p>[Explain — e.g., kept very low / near zero because straight sections were short and wind-up was a bigger risk than bias.]</p>
+            <div class="pid-value-num">0.01</div>
+            <p>Kept very low across all tracks. Accounts for accumulated past errors and forces gradual corrections for persistent drift without causing wind-up.</p>
           </div>
           <div class="pid-value-card">
             <div class="pid-value-label">D (Derivative)</div>
-            <div class="pid-value-num">[VALUE]</div>
-            <p>[Explain — e.g., increased D to smooth sharp turn entry; too high caused jitter on straight sections.]</p>
+            <div class="pid-value-num">0.30–0.35</div>
+            <p>Uses the rate of error change to prevent overcorrecting. Higher D values balance out higher P values on the more demanding tracks.</p>
           </div>
         </div>
       </div>
@@ -320,52 +340,38 @@
             <div class="track-icon">🏁</div>
             <h4>Drag Race</h4>
             <div class="track-values">
-              <span>Speed: <strong>[VALUE]</strong></span>
-              <span>P: <strong>[VALUE]</strong></span>
-              <span>I: <strong>[VALUE]</strong></span>
-              <span>D: <strong>[VALUE]</strong></span>
+              <span>Speed: <strong>60</strong></span>
+              <span>P: <strong>25</strong></span>
+              <span>I: <strong>0.01</strong></span>
+              <span>D: <strong>0.30</strong></span>
             </div>
-            <p>[Explain adjustments — e.g., maximized speed since the track is a straight line; reduced D to avoid overcorrecting on minor deviations.]</p>
+            <p>A smoother track allows for higher speed. Lower P keeps corrections gentle on a more predictable path, and a slightly lower D is sufficient to prevent overcorrecting.</p>
           </div>
           <div class="track-card">
             <div class="track-icon">〰️</div>
             <h4>Frequency Sweep</h4>
             <div class="track-values">
-              <span>Speed: <strong>[VALUE]</strong></span>
-              <span>P: <strong>[VALUE]</strong></span>
-              <span>I: <strong>[VALUE]</strong></span>
-              <span>D: <strong>[VALUE]</strong></span>
+              <span>Speed: <strong>30</strong></span>
+              <span>P: <strong>40</strong></span>
+              <span>I: <strong>0.01</strong></span>
+              <span>D: <strong>0.35</strong></span>
             </div>
-            <p>[Explain — e.g., reduced speed to handle tighter curves; increased P and D to respond to rapidly changing line position.]</p>
+            <p>The trickiest track — speed is cut in half to give the PID time to react to rapidly changing curves. Higher P drives sharper corrections, and a higher D keeps that from overcorrecting.</p>
           </div>
           <div class="track-card">
             <div class="track-icon">🔁</div>
             <h4>Loop</h4>
             <div class="track-values">
-              <span>Speed: <strong>[VALUE]</strong></span>
-              <span>P: <strong>[VALUE]</strong></span>
-              <span>I: <strong>[VALUE]</strong></span>
-              <span>D: <strong>[VALUE]</strong></span>
+              <span>Speed: <strong>80</strong></span>
+              <span>P: <strong>30</strong></span>
+              <span>I: <strong>0.01</strong></span>
+              <span>D: <strong>0.35</strong></span>
             </div>
-            <p>[Explain — e.g., balanced speed to sustain multiple laps; tuned I slightly higher to handle continuous circular drift.]</p>
+            <p>The smoothest track allows the highest speed. P is slightly elevated over Track 1 for consistent turning, and D is kept higher to dampen any oscillation across laps.</p>
           </div>
         </div>
       </div>
 
-      <!-- Optional Code Modifications -->
-      <div class="pid-code-section">
-        <h3 class="pid-sub-title">Code Modifications <span class="optional-badge">Optional</span></h3>
-        <p class="pid-code-hint">[Any notable changes made to the starter code.]</p>
-        <!--
-          Uncomment and fill in a code snippet if sharing modifications:
-
-          <pre class="code-block"><code>// Example: weighted sensor error calculation
-float error = (s0*-3 + s1*-2 + s2*-1 + s3*0 + s4*1 + s5*2 + s6*3) / activeSensors;
-float correction = Kp*error + Ki*integral + Kd*(error - prevError);
-leftSpeed  = constrain(baseSpeed + correction, 0, 255);
-rightSpeed = constrain(baseSpeed - correction, 0, 255);</code></pre>
-        -->
-      </div>
     </div>
   </section>
 
@@ -414,6 +420,8 @@ rightSpeed = constrain(baseSpeed - correction, 0, 255);</code></pre>
             </div>
           </div>
         </div>
+
+
       </div>
     </div>
   </section>
@@ -432,11 +440,9 @@ rightSpeed = constrain(baseSpeed - correction, 0, 255);</code></pre>
           Or embed a PDF:
           <iframe src="assets/poster.pdf" class="poster-iframe" title="Project Poster"></iframe>
         -->
-        <div class="poster-placeholder">
-          <div class="poster-placeholder-icon">📄</div>
-          <p class="poster-placeholder-title">Project Poster — Add Here</p>
-          <p class="poster-placeholder-hint">Poster image (JPG/PNG) or PDF embed.</p>
-        </div>
+        <img src="assets/images/ECE5 Poster.pptx.png"
+             alt="Bot Bot Bot Sahur ECE 5 Project Poster"
+             class="poster-img" />
       </div>
     </div>
   </section>
@@ -618,7 +624,13 @@ rightSpeed = constrain(baseSpeed - correction, 0, 255);</code></pre>
           - What improvements you wish you had made (or would make given more time)
         -->
         <p class="improvements-text">
-          [Replace this paragraph with 4–6 sentences.]
+          The design process involved collaborative brainstorming, with numerous drawings and conversations between the team — especially regarding chassis layout and component placement. Through multiple work sessions, we engaged in challenges that were laborious, thoughtful, and ultimately rewarding. Working at DIB, we set up a mock track using paper and electrical tape to verify that the robot could follow lines reliably before seeding.
+        </p>
+        <p class="improvements-text">
+          Throughout the project, we learned the importance of testing each component individually to root out problems early and save time during assembly. Precautions such as applying electrical tape beneath components helped prevent accidental shorts. Our design process reinforced the principle of prototyping on a breadboard before committing decisions to the perfboard. Beyond components from previous labs, we expanded our skills by wiring new hardware including motors and motor drivers. We also gained a deeper understanding of how PID controllers work and developed hands-on experience tuning them to different operating conditions.
+        </p>
+        <p class="improvements-text">
+          Looking ahead, we would dedicate more time to PID tuning earlier in the process, as much of our late-stage troubleshooting stemmed from suboptimal controller parameters. We would also improve cable management from the start, since cluttered wiring made debugging more difficult and potentially introduced noise when we were trying to program and read values.
         </p>
       </div>
     </div>
@@ -657,23 +669,6 @@ rightSpeed = constrain(baseSpeed - correction, 0, 255);</code></pre>
         </div>
       </div>
 
-      <!-- Competition Day Team Photo -->
-      <div class="team-photo-section">
-        <h3 class="team-photo-title">Competition Day</h3>
-        <div class="team-photo-wrapper">
-          <!--
-            Replace this placeholder with your competition day team photo:
-            <img src="assets/images/team-competition.jpg"
-                 alt="Bot Bot Bot Sahur team at ECE 5 competition day"
-                 class="team-photo" />
-          -->
-          <div class="team-photo-placeholder">
-            <div class="team-photo-icon">📸</div>
-            <p class="team-photo-title-inner">Team Photo — Competition Day</p>
-            <p class="team-photo-hint">Group photo of all team members from competition day.</p>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
